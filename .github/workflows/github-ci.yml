@@ -25,4 +25,4 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Mit Maven erstellen
-        run: mvn -B package --file backend/pom.xml
+        run: mvn -B package --file backend/pom.xml -Dspring.profiles.active=dev
