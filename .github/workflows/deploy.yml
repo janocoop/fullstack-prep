@@ -40,7 +40,11 @@ jobs:
       - name: JDK einrichten
         uses: actions/setup-java@v4
         with:
+<<<<<<< HEAD
           java-version: '21' # muss mit der Version in der pom.xml übereinstiammen
+=======
+          java-version: '21' # muss mit der Version in der pom.xml übereinstimmen
+>>>>>>> origin/feat/ticket-123
           distribution: 'temurin'
           cache: 'maven'
 
