@@ -17,7 +17,7 @@ public class AccountService {
 
     public AccountModel fetchAccount() {
         AccountModel accountModel = new AccountModel();
-        accountModel.setUsername("Nicolas");
+        accountModel.setUsername("test");
         accountModel.setPassword("Test2");
     return accountModel;
     }
