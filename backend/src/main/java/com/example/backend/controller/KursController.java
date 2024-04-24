@@ -24,7 +24,7 @@ public class KursController {
     private final KursService kursService;
 
     @GetMapping
-    public List<KursModel> fetchAll(){
+    public List<KursModel> fetchAll() {
         return kursService.fetchAllKurse();
     }
 
