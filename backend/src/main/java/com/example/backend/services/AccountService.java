@@ -22,6 +22,14 @@ public class AccountService {
     return accountModel;
     }
 
+    public boolean authenticateUser(String username, String password){
+        AccountModel accountModel = accountRepository.findByUsername(username);
+        if (accountModel != null) {
+            return accountModel.getPassword().equals(password);
+        }
+        return false;
+    }
+
     public List<AccountModel> fetchAllAccounts() {
 
         return accountRepository.findAll();
@@ -43,5 +51,9 @@ public class AccountService {
 
     public void deleteAccount(AccountModel delete) {
          accountRepository.delete(delete);
+    }
+
+    public String generateAuthToken(String username) {
+        return null;
     }
 }

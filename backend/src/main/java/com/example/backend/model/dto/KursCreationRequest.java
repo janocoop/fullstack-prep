@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class KursCreationRequest {
     private String kursName;
-    private String KursAufgabe;
+    private String kursAufgabe;
     private String kursTage;
 }

@@ -21,7 +21,7 @@ public class KursService {
     public KursModel updateKurs(KursUpdateRequest update) {
         Optional<KursModel> maybeKurs = kursRepository.findById(update.getKursID());
         return maybeKurs.map(kurs -> {
-            kurs.setKursTage(List.of());
+            kurs.setKursTage(update.getKursTage());
             kurs.setKursName(update.getKursName());
             kurs.setKursAufgaben(update.getKursAufgabe());
             return kursRepository.save(kurs);
@@ -31,10 +31,12 @@ public class KursService {
     public KursModel createKurs(KursCreationRequest request) {
         String kursName = request.getKursName();
         String kursAufgaben = request.getKursAufgabe();
+        String kursTage = request.getKursTage();
 
         KursModel kursModel = new KursModel();
         kursModel.setKursName(kursName);
         kursModel.setKursAufgaben(kursAufgaben);
+        kursModel.setKursTage(kursTage);
         return kursRepository.save(kursModel);
     }
 

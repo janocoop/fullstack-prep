@@ -1,21 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import './App.css'
-import Register from "./assets/CreateAccount.tsx";
-import Login from "./assets/Login.tsx";
-import Kurse from "./assets/kurse.tsx";
+import RegisterView from "./pages/registerView.tsx";
+import LoginView from "./pages/loginView.tsx";
+import CourseCreateView from "./pages/courseCreateView.tsx";
+import CourseView from "./pages/courseView.tsx";
 
 function App() {
 
   return (
-    <>
-
         <Routes>
-            <Route path="/" element={<Register />}/>
-            <Route path="/login" element={<Login />}/>
-            <Route path="/kurse" element={<Kurse />}/>
+            <Route path="/" element={<RegisterView />}/>
+            <Route path="/login" element={<LoginView />}/>
+            <Route path="/kurse" element={<CourseView />}/>
+            <Route path="/kurse/erstellen" element={<CourseCreateView />}/>
         </Routes>
-
-    </>
   )
 }
 
