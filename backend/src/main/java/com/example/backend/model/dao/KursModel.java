@@ -21,7 +21,6 @@ public class KursModel {
 
     private String kursAufgaben;
 
-    @OneToMany
-    private List<KursTagModel> kursTage;
+    private String kursTage;
 
 }

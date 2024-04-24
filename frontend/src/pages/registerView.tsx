@@ -3,7 +3,7 @@ import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router";
 
-export default function Register() {
+export default function RegisterView() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -94,6 +94,7 @@ export default function Register() {
                     color: 'white',
                     border: 'black',
                     borderRadius: '20px',
+                    boxShadow: "2px 3px 4px rgba(0, 0, 0, 0.1)",
                 }}>Account Erstellen
                 </button>
             </form>
