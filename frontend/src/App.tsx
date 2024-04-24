@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import './App.css'
 import Register from "./assets/CreateAccount.tsx";
 import Login from "./assets/Login.tsx";
+import Kurse from "./assets/kurse.tsx";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Register />}/>
             <Route path="/login" element={<Login />}/>
+            <Route path="/kurse" element={<Kurse />}/>
         </Routes>
 
     </>
