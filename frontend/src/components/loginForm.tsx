@@ -2,6 +2,7 @@ import "../assets/css/loginForm.css";
 import axios from "axios";
 import {useNavigate} from "react-router";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 export default function LoginForm(){
 
     const navigate = useNavigate();
@@ -45,6 +46,9 @@ export default function LoginForm(){
                     <div className="form-group">
                         <button type="submit">Login</button>
                     </div>
+                    <a className={"form-group"} href="/">
+                        <button type="button">Ich habe keinen Account</button>
+                    </a>
                 </form>
             </div>
         )

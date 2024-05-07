@@ -2,6 +2,7 @@ import "../assets/css/loginForm.css";
 import {useNavigate} from "react-router";
 import {useState} from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 export default function RegisterForm() {
 
@@ -47,9 +48,15 @@ export default function RegisterForm() {
                     <input onChange={handleChange} type="password" id="password" name="password" required/>
                 </div>
                 <div className="form-group">
-                    <button type="submit">Registrierung</button>
+                    <button type="submit">Registrieren</button>
                 </div>
+
+                <a className={"form-group"} href="/login">
+                    <button type="button">Ich habe einen Account</button>
+                </a>
+
             </form>
+
         </div>
 
     )
