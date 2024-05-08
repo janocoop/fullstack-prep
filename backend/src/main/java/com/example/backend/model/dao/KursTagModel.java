@@ -1,10 +1,10 @@
 package com.example.backend.model.dao;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.engine.internal.Cascade;
+
+import java.util.List;
 
 
 @Entity
@@ -19,8 +19,8 @@ public class KursTagModel {
 
     private String position;
 
-
-    private String kursThema;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<KursThemaModel> kursThemen;
 
 
 }

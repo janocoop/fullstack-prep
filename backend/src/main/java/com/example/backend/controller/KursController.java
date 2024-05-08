@@ -43,5 +43,9 @@ public class KursController {
         kursService.deleteKurs(request);
     }
 
+@GetMapping("/{id}")
+    public KursModel getKurs(@PathVariable Long id) {
+        return kursService.fetchById(id);
+}
 
 }

@@ -19,8 +19,7 @@ public class KursModel {
 
     private String kursName;
 
-    private String kursAufgaben;
-
-    private String kursTage;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<KursTagModel> kursTage;
 
 }

@@ -21,9 +21,9 @@ public class KursService {
     public KursModel updateKurs(KursUpdateRequest update) {
         Optional<KursModel> maybeKurs = kursRepository.findById(update.getKursID());
         return maybeKurs.map(kurs -> {
-            kurs.setKursTage(update.getKursTage());
-            kurs.setKursName(update.getKursName());
-            kurs.setKursAufgaben(update.getKursAufgabe());
+           // kurs.setKursTage(update.getKursTage());
+            //kurs.setKursName(update.getKursName());
+            //kurs.setKursAufgaben(update.getKursAufgabe());
             return kursRepository.save(kurs);
         }).orElse(null);
     }
@@ -35,8 +35,8 @@ public class KursService {
 
         KursModel kursModel = new KursModel();
         kursModel.setKursName(kursName);
-        kursModel.setKursAufgaben(kursAufgaben);
-        kursModel.setKursTage(kursTage);
+       // kursModel.setKursAufgaben(kursAufgaben);
+        //kursModel.setKursTage(kursTage);
         return kursRepository.save(kursModel);
     }
 
@@ -47,11 +47,18 @@ public class KursService {
     public KursModel fetchKurs() {
         KursModel kursModel = new KursModel();
         kursModel.setKursName("Nicolas");
-        kursModel.setKursAufgaben("Test2");
+      //  kursModel.setKursAufgaben("Test2");
         return kursModel;
     }
 
     public List<KursModel> fetchAllKurse() {
         return kursRepository.findAll();
+    }
+
+    public KursModel fetchById(Long id) {
+        Optional<KursModel> optionalKurs = kursRepository.findById(id);
+        if (optionalKurs.isEmpty() ) throw new RuntimeException();
+
+        return optionalKurs.get();
     }
 }
