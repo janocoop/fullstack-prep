@@ -13,7 +13,7 @@ interface CourseListProps {
 
 export default function CourseList({data}: CourseListProps) {
     return (
-        <div className="cards-container">
+        <div className="form-container">
             {data.map((course, index) => (
                 <a href= {"/kurse/"+course.id}>
                     <div className="card" key={index}>
