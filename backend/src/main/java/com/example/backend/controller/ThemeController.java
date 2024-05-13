@@ -1,10 +1,7 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.dao.KursModel;
-import com.example.backend.model.dto.KursCreationRequest;
-import com.example.backend.model.dto.KursDeleteRequest;
-import com.example.backend.model.dto.KursUpdateRequest;
-import com.example.backend.services.KursService;
+import com.example.backend.model.dao.KursThemaModel;
+import com.example.backend.services.ThemenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +15,9 @@ public class ThemeController {
     private final ThemenService themenService;
 
     @GetMapping
+    public List<KursThemaModel> fetchAll() {
+        return themenService.loadAll();
+    }
 
-
-
-    @PostMapping(path = "/createthema")
 }
 
