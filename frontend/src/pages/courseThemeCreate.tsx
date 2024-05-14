@@ -1,14 +1,17 @@
 import HeaderSection from "../sections/headerSection.tsx";
 import ContentSection from "../sections/contentSection.tsx";
 import FooterSection from "../sections/footerSection.tsx";
-import CourseDayDetailView from "./courseDayDetailView.tsx";
+import CourseThemeCreateForm from "../components/courseThemeCreateForm.tsx";
 
-export default function CourseDayView() {
+
+export default function CourseThemeCreate() {
+
     return (
         <>
             <HeaderSection/>
-            <ContentSection content={<CourseDayDetailView/>}/>
+            <ContentSection content={<CourseThemeCreateForm/>}/>
             <FooterSection/>
         </>
     );
+
 }

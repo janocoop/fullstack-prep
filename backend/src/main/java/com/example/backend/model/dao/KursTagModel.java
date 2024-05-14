@@ -22,5 +22,9 @@ public class KursTagModel {
     @OneToMany(cascade = CascadeType.ALL)
     private List<KursThemaModel> kursThemen;
 
+public void addThema(KursThemaModel kursThemaModel) {
+    this.kursThemen.add(kursThemaModel);
+
+}
 
 }

@@ -69,4 +69,8 @@ public class KursService {
 
         return optionalKurs.get();
     }
+
+    public void persist(KursModel kursModel) {
+        kursRepository.save(kursModel);
+    }
 }

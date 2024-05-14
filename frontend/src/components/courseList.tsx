@@ -1,4 +1,5 @@
 import "../assets/css/courseList.css";
+import {Link} from "react-router-dom";
 
 type Course = {
     kursName: string,
@@ -15,11 +16,11 @@ export default function CourseList({data}: CourseListProps) {
     return (
         <div className="form-container">
             {data.map((course, index) => (
-                <a href= {"/kurse/"+course.id}>
+                <Link to = {"/kurse/"+course.id}  state={course}>
                     <div className="card" key={index}>
                         <div>{course.kursName}</div>
                     </div>
-                </a>
+                </Link>
 
 
             ))}

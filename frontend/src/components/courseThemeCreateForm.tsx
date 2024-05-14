@@ -1,20 +1,19 @@
 import {useState} from "react";
 import axios from "axios";
 import "../assets/css/courseCreateView.css";
-import {Link} from "react-router-dom";
+import {useParams} from "react-router";
 
-export default function CourseCreateForm() {
+export default function CourseThemeCreateForm() {
 
+    const {kursid, dayid} = useParams()
     const [formData, setFormData] = useState({
-        kursName: "",
-        kursAufgabe: "",
-        kursTage: ""
+        themaName: "",
     });
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(formData);
-        axios.post('/api/kurse/createkurs', formData)
+        axios.post('/api/kurse/'+kursid+"/days/"+dayid+"/themen/create", formData)
             .then(response => {
                 console.log('Erfolgreich gesendet:', response.data);
             })
@@ -38,19 +37,9 @@ export default function CourseCreateForm() {
                 <div className="form-group">
                 <input
                     type="text"
-                    name="kursName"
-                    placeholder="Kursname"
-                    value={formData.kursName}
-                    onChange={handleChange}
-
-                />
-                </div>
-                <div className="form-group">
-                <input
-                    type="number"
-                    name="kursTage"
-                    placeholder="Kurstage"
-                    value={formData.kursTage}
+                    name="themaName"
+                    placeholder="Name vom Thema"
+                    value={formData.themaName}
                     onChange={handleChange}
 
                 />
@@ -60,9 +49,10 @@ export default function CourseCreateForm() {
                 <button type="submit">
                     Speichern
                 </button>
+
                 </div>
                 <a className={"form-group"} href="/kurse">
-                    <button type="button">Kursübersicht</button>
+                    <button type="button">Themenübersicht</button>
                 </a>
             </form>
         </div>

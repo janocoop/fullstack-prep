@@ -19,6 +19,7 @@ public class KursThemaModel {
     @OneToMany(cascade = CascadeType.ALL)
     private List<KursAufgabenModel> aufgaben;
 
+    private String name;
 
 
 }
