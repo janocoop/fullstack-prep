@@ -26,12 +26,17 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .card {
     padding: 80px;
     margin-bottom: 30px;
     background-color: rgba(90, 183, 239, 0.13);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .cards-container {

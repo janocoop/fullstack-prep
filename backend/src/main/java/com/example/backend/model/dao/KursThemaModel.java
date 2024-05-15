@@ -3,6 +3,7 @@ package com.example.backend.model.dao;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,9 +18,12 @@ public class KursThemaModel {
     private KursLektionModel lektion;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private List<KursAufgabenModel> aufgaben;
+    private List<KursAufgabenModel> aufgaben = new ArrayList<>(0);
 
     private String name;
 
 
+    public void addTask(KursAufgabenModel kursAufgabenModel) {
+        this.aufgaben.add(kursAufgabenModel);
+    }
 }

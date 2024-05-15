@@ -1,16 +1,19 @@
 import HeaderSection from "../sections/headerSection.tsx";
 import ContentSection from "../sections/contentSection.tsx";
 import FooterSection from "../sections/footerSection.tsx";
-import CourseDayDetailView from "./courseDayDetailView.tsx";
-import {useEffect} from "react";
-import axios from "axios";
+import CourseThemeCreateForm from "./courseThemeCreateForm.tsx";
+import CourseAufgabenLektionenPage from "../pages/courseAufgabenLektionenPage.tsx";
 
-export default function CourseDayView() {
+
+
+export default function CourseAufgabenLektionen() {
+
     return (
         <>
             <HeaderSection/>
-            <ContentSection content={<CourseDayDetailView/>}/>
+            <ContentSection content={<CourseAufgabenLektionenPage/>}/>
             <FooterSection/>
         </>
     );
+
 }

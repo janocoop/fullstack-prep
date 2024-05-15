@@ -23,4 +23,12 @@ public class ThemenService {
         kursThemaModel.setName(request.getThemaName());
         return kursThemaRepository.save(kursThemaModel);
     }
+
+    public KursThemaModel loadById(String themeid) {
+        return kursThemaRepository.findById(Long.valueOf(themeid)).orElse(null);
+    }
+
+    public KursThemaModel persist(KursThemaModel kursThemaModel) {
+        return kursThemaRepository.save(kursThemaModel);
+    }
 }

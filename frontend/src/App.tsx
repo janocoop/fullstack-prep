@@ -9,6 +9,7 @@ import CourseDetailView from "./pages/courseDetailView.tsx";
 import CoursePartView from "./pages/coursePartView.tsx";
 import CourseTaskView from "./pages/courseTaskView.tsx";
 import CourseThemeCreate from "./pages/courseThemeCreate.tsx";
+import CourseAufgabenLektionen from "./components/courseAufgabenLektionen.tsx";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/kurse/:kursid" element={<CourseDetailView />}/>
             <Route path="/kurse/:kursid/days/:dayid" element={<CourseDayView />}/>
             <Route path="/kurse/:kursid/days/:dayid/themen/erstellen" element={<CourseThemeCreate/>}/>
+            <Route path="/kurse/:kursid/days/:dayid/themen/:themeid" element={<CourseAufgabenLektionen/>}/>
             <Route path="/kurse/:kursid/days/:dayid/parts/:partid" element={<CoursePartView />}/>
             <Route path="/kurse/:kursid/days/:dayid/parts/:partid/tasks/:taskid" element={<CourseTaskView />}/>
         </Routes>
