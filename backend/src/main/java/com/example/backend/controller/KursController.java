@@ -84,4 +84,11 @@ public class KursController {
         return kursService.fetchById(id);
     }
 
+    @GetMapping("/{kursId}/days/{dayId}/themen/{themeid}")
+    public KursModel getThema(@PathVariable("kursid") String kursId,
+                              @PathVariable("dayid") String dayId,
+                              @PathVariable("themeid") String themeid){
+        return kursService.fetchById(Long.valueOf(themeid));
+    }
+
 }
