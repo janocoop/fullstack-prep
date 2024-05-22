@@ -11,6 +11,7 @@ import CourseTaskView from "./pages/courseTaskView.tsx";
 import CourseThemeCreate from "./pages/courseThemeCreate.tsx";
 import CourseAufgabenLektionen from "./components/courseAufgabenLektionen.tsx";
 import CourseTaskCreateView from "./pages/courseTaskCreateView.tsx";
+import CourseLektionCreateView from "./pages/courseLektionCreateView.tsx";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/kurse/:kursid/days/:dayid/themen/erstellen" element={<CourseThemeCreate/>}/>
             <Route path="/kurse/:kursid/days/:dayid/themen/:themeid" element={<CourseAufgabenLektionen/>}/>
             <Route path="/kurse/:kursid/days/:dayid/themen/:themeid/task/create" element={<CourseTaskCreateView/>}/>
+            <Route path="/kurse/:kursid/days/:dayid/themen/:themeid/lektion/create" element={<CourseLektionCreateView/>}/>
             <Route path="/kurse/:kursid/days/:dayid/parts/:partid" element={<CoursePartView />}/>
             <Route path="/kurse/:kursid/days/:dayid/parts/:partid/tasks/:taskid" element={<CourseTaskView />}/>
         </Routes>

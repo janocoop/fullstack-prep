@@ -9,48 +9,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
-
 @RestController
 @RequestMapping(path = "/api/kurse")
 @RequiredArgsConstructor
 public class KursController {
 
-
     private final KursService kursService;
     private final ThemenService themenService;
     private final KursTagService kursTagService;
 
-    private final AufgabenService aufgabenService;
-
     @PostMapping(path = "/{kursId}/days/{dayId}/themen/{themeid}/task/create")
-    public KursAufgabenModel createTask(
+    public KursThemaModel createTask(
             @RequestBody AufgabeCreationRequest request,
-            @PathVariable("kursid") String kursId,
-            @PathVariable("dayid") String dayId,
+            @PathVariable("kursId") String kursId,
+            @PathVariable("dayId") String dayId,
             @PathVariable("themeid") String themeid
     ) {
-        return aufgabenService.createAufgabe(request, themeid);
+        return themenService.createAufgabe(request, themeid);
     }
 
-
-    @GetMapping
-    public List<KursModel> fetchAll() {
-        return kursService.fetchAllKurse();
-    }
-
-    @GetMapping({"/{kursId}/days/{dayId}"})
-    public KursTagModel fetchKursTag(@PathVariable("kursId") String kursId, @PathVariable("dayId") String dayId) {
-        return kursTagService.fetchById(dayId);
-    }
-
-
-    @PostMapping(path = "/createkurs")
-    public KursModel createKurs(@RequestBody KursCreationRequest request) {
-        return kursService.createKurs(request);
-    }
-
-    @PostMapping("/{kursId}/days/{dayId}/themen/create")
-    public KursThemaModel createThema(@RequestBody ThemaCreationRequest request, @PathVariable("kursId") String kursId, @PathVariable("dayId") String dayId) {
+    @PostMapping(path = "/{kursId}/days/{dayId}/themen/create")
+    public KursThemaModel createThema(
+            @RequestBody ThemaCreationRequest request,
+            @PathVariable("kursId") String kursId,
+            @PathVariable("dayId") String dayId
+    ) {
         KursModel kursModel = kursService.fetchById(Long.valueOf(kursId));
         if (kursModel == null) {
             return null;
@@ -66,6 +49,31 @@ public class KursController {
             }
         }
         return null;
+    }
+
+    @PostMapping(path = "/{kursId}/days/{dayId}/themen/{themeid}/lektion/create")
+    public KursThemaModel createLesson(
+            @RequestBody LektionCreationRequest request,
+            @PathVariable("kursId") String kursId,
+            @PathVariable("dayId") String dayId,
+            @PathVariable("themeid") String themeid
+    ) {
+        return themenService.createLektion(request, themeid);
+    }
+
+    @GetMapping
+    public List<KursModel> fetchAll() {
+        return kursService.fetchAllKurse();
+    }
+
+    @GetMapping({"/{kursId}/days/{dayId}"})
+    public KursTagModel fetchKursTag(@PathVariable("kursId") String kursId, @PathVariable("dayId") String dayId) {
+        return kursTagService.fetchById(dayId);
+    }
+
+    @PostMapping(path = "/createkurs")
+    public KursModel createKurs(@RequestBody KursCreationRequest request) {
+        return kursService.createKurs(request);
     }
 
 
@@ -85,10 +93,9 @@ public class KursController {
     }
 
     @GetMapping("/{kursId}/days/{dayId}/themen/{themeid}")
-    public KursModel getThema(@PathVariable("kursid") String kursId,
-                              @PathVariable("dayid") String dayId,
-                              @PathVariable("themeid") String themeid){
-        return kursService.fetchById(Long.valueOf(themeid));
+    public KursThemaModel getThema(@PathVariable("kursId") String kursId,
+                                   @PathVariable("dayId") String dayId,
+                                   @PathVariable("themeid") String themeid) {
+        return themenService.fetchById(Long.valueOf(themeid));
     }
-
 }

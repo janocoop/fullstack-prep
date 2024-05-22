@@ -14,10 +14,10 @@ public class KursThemaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Embedded
     private KursLektionModel lektion;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ElementCollection
     private List<KursAufgabenModel> aufgaben = new ArrayList<>(0);
 
     private String name;

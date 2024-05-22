@@ -3,7 +3,6 @@ package com.example.backend.services;
 import com.example.backend.model.dao.KursAufgabenModel;
 import com.example.backend.model.dao.KursThemaModel;
 import com.example.backend.model.dto.AufgabeCreationRequest;
-import com.example.backend.model.repository.AufgabenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

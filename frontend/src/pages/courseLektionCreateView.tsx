@@ -4,11 +4,10 @@ import {useParams} from "react-router";
 import axios from "axios";
 
 
-export default function CourseTaskCreateView() {
+export default function CourseLektionCreateView() {
     const {kursid, dayid, themeid} = useParams();
     const [formData, setFormData] = useState({
-        title: "",
-        description: ""
+        content: "",
 
     });
 
@@ -25,7 +24,7 @@ export default function CourseTaskCreateView() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(formData);
-        axios.post("/api/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/task/create", formData)
+        axios.post("/api/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/lektion/create", formData)
             .then(response => {
                 console.log('Erfolgreich gesendet:', response.data);
             })
@@ -38,14 +37,8 @@ export default function CourseTaskCreateView() {
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="Titel"
-                        value={formData.title}
-                        onChange={handleChange}
-                    />
-                    <textarea name={"description"} placeholder={"Beschreibung"} value={formData.description}
+
+                    <textarea name={"content"} placeholder={"Beschreibung"} value={formData.content}
                               onChange={handleChange}/>
 
                 </div>
@@ -55,7 +48,7 @@ export default function CourseTaskCreateView() {
                 </div>
             </form>
             <div className="form-group">
-                <a href="/kurse/">
+                <a href="/kurse">
                     <button type="button">Kursübersicht</button>
                 </a>
             </div>
