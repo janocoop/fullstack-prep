@@ -7,6 +7,7 @@ import com.example.backend.model.dao.KursModel;
 import com.example.backend.model.dao.KursThemaModel;
 import com.example.backend.model.dto.AufgabeCreationRequest;
 import com.example.backend.model.dto.LektionCreationRequest;
+import com.example.backend.model.dto.TaskUpdateRequest;
 import com.example.backend.model.repository.KursThemaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -69,4 +70,17 @@ public class ThemenService {
         kursThemaModel.setLektion(kursLektionModel);
         return persist(kursThemaModel);
     }
+    public KursThemaModel updateTask(TaskUpdateRequest taskUpdateRequest, String themeid) {
+
+        KursThemaModel kursThemaModel = loadById(themeid);
+        if (kursThemaModel == null) {
+            throw new RuntimeException("Thema existiert nicht.");
+        }
+        List<KursAufgabenModel> aufgaben = kursThemaModel.getAufgaben();
+        KursAufgabenModel kursAufgabenModel = aufgaben.get(taskUpdateRequest.getIndex());
+        kursAufgabenModel.setAnswer(taskUpdateRequest.getAnswer());
+        return kursThemaModel;
+    }
+
+
 }

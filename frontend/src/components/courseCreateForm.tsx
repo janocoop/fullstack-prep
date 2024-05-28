@@ -64,6 +64,7 @@ export default function CourseCreateForm() {
                 <a className={"form-group"} href="/kurse">
                     <button type="button">Kursübersicht</button>
                 </a>
+
             </form>
         </div>
     )

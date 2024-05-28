@@ -45,8 +45,12 @@ export default function CourseTaskCreateView() {
                         value={formData.title}
                         onChange={handleChange}
                     />
-                    <textarea name={"description"} placeholder={"Beschreibung"} value={formData.description}
-                              onChange={handleChange}/>
+                    <textarea name={"description"}
+                              placeholder={"Beschreibung"}
+                              value={formData.description}
+                              onChange={handleChange}
+                              style={{ marginTop: '10 px' }}
+                    />
 
                 </div>
 
@@ -55,8 +59,8 @@ export default function CourseTaskCreateView() {
                 </div>
             </form>
             <div className="form-group">
-                <a href="/kurse/">
-                    <button type="button">Kursübersicht</button>
+                <a href={"/kurse/"+kursid+"/days/"+dayid+"/themen/"+themeid}>
+                    <button type="button">Themenübersicht</button>
                 </a>
             </div>
         </div>

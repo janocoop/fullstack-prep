@@ -24,6 +24,9 @@ export default function CourseList({data}: CourseListProps) {
 
 
             ))}
+            <a className={"form-group"} href={"/kurse/erstellen"}>
+                <button type="button">Kurs Erstellen</button>
+            </a>
 
         </div>
 

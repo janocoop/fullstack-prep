@@ -37,10 +37,12 @@ export default function CourseLektionCreateView() {
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-
-                    <textarea name={"content"} placeholder={"Beschreibung"} value={formData.content}
-                              onChange={handleChange}/>
-
+    <textarea
+        name="content"
+        placeholder="Beschreibung"
+        value={formData.content}
+        onChange={handleChange}
+    />
                 </div>
 
                 <div className="form-group">
@@ -48,10 +50,11 @@ export default function CourseLektionCreateView() {
                 </div>
             </form>
             <div className="form-group">
-                <a href="/kurse">
-                    <button type="button">Kursübersicht</button>
+                <a href={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid}>
+                    <button type="button">Themenübersicht</button>
                 </a>
             </div>
+
         </div>
     );
 }

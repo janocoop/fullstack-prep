@@ -17,6 +17,7 @@ public class KursController {
     private final KursService kursService;
     private final ThemenService themenService;
     private final KursTagService kursTagService;
+    private final AufgabenService aufgabenService;
 
     @PostMapping(path = "/{kursId}/days/{dayId}/themen/{themeid}/task/create")
     public KursThemaModel createTask(
@@ -97,5 +98,21 @@ public class KursController {
                                    @PathVariable("dayId") String dayId,
                                    @PathVariable("themeid") String themeid) {
         return themenService.fetchById(Long.valueOf(themeid));
+    }
+
+    @PostMapping("/{kursId}/days/{dayId}/themen/{themeid}/task/update")
+    public KursThemaModel updateTask(@PathVariable("kursId") String kursId,
+                                     @PathVariable("dayId") String dayId,
+                                     @PathVariable("themeid") String themeid,
+    @RequestBody TaskUpdateRequest taskUpdateRequest) {
+return themenService.updateTask(taskUpdateRequest, themeid);
+    }
+
+    @PostMapping("/themen/{themeid}/task/submit/{title}/{answer}")
+public KursThemaModel submitAnswer(@PathVariable("title") String title,
+                                   @PathVariable("answer") String answer,
+                                   @PathVariable("themeid") Long themeid) {
+
+        return aufgabenService.submitAufgabe(themenService.fetchById(themeid), title, answer);
     }
 }

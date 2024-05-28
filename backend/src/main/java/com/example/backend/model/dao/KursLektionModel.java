@@ -1,15 +1,12 @@
 package com.example.backend.model.dao;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 
 @Data
 public class KursLektionModel {
-
+@Column(length = 2000)
     private String content;
 
 }

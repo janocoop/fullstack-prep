@@ -6,6 +6,8 @@ import com.example.backend.model.dto.AufgabeCreationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class AufgabenService {
@@ -23,5 +25,18 @@ public class AufgabenService {
         kursThemaModel.addTask(kursAufgabenModel);
         themenService.persist(kursThemaModel);
         return kursAufgabenModel;
+    }
+
+    public KursThemaModel submitAufgabe(KursThemaModel kursThemaModel, String title, String answer) {
+        List<KursAufgabenModel> kursAufgaben = kursThemaModel.getAufgaben().stream().map((kursAufgabenModel -> {
+            if (title.equals(kursAufgabenModel.getTitle())) {
+                kursAufgabenModel.setAnswer(answer);
+            }
+            return kursAufgabenModel;
+        })).toList();
+
+        kursThemaModel.setAufgaben(kursAufgaben);
+
+        return themenService.persist(kursThemaModel);
     }
 }
