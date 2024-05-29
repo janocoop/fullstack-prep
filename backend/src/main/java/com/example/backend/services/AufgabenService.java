@@ -6,7 +6,12 @@ import com.example.backend.model.dto.AufgabeCreationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toCollection;
 
 @Service
 @RequiredArgsConstructor
@@ -29,11 +34,11 @@ public class AufgabenService {
 
     public KursThemaModel submitAufgabe(KursThemaModel kursThemaModel, String title, String answer) {
         List<KursAufgabenModel> kursAufgaben = kursThemaModel.getAufgaben().stream().map((kursAufgabenModel -> {
-            if (title.equals(kursAufgabenModel.getTitle())) {
+            if (title.equals(kursAufgabenModel.getDescription())) {
                 kursAufgabenModel.setAnswer(answer);
             }
             return kursAufgabenModel;
-        })).toList();
+        })).collect(Collectors.toList());
 
         kursThemaModel.setAufgaben(kursAufgaben);
 

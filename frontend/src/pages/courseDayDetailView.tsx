@@ -9,6 +9,7 @@ export default function CourseDayDetailView() {
     const {state} = useLocation();
     const [currentState, setCurrentState] = useState(state);
 
+
     useEffect(() => {
         axios.get("/api/kurse/"+kursid+"/days/"+dayid)
             .then((res) => {
@@ -18,14 +19,15 @@ export default function CourseDayDetailView() {
     })
 
     return (
+        <div>
         <div className={"form-container"}>
             <h1>
                 Themen
             </h1>
 
-            <a href={"/kurse/"+kursid+"/days/"+dayid+"/themen/erstellen"} className={"form-group"}>
+            <L href={"/kurse/"+kursid+"/days/"+dayid+"/themen/erstellen"} className={"form-group"}>
                     <button type="button">Thema Erstellen</button>
-            </a>
+            </L>
 
             {currentState?.kursThemen.map((thema, index) => (
                 <Link to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + thema.id} key={index} state={thema}>
@@ -39,7 +41,10 @@ export default function CourseDayDetailView() {
 
 
         </div>
-
+    <a className={"form-group"} href={"/kurse/" + kursid}>
+        <button type="button">zurück</button>
+    </a>
+    </div>
     );
 }
 

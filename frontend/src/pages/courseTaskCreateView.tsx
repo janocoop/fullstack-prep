@@ -45,7 +45,7 @@ export default function CourseTaskCreateView() {
                         value={formData.title}
                         onChange={handleChange}
                     />
-                    <textarea name={"description"}
+                    <input name={"description"}
                               placeholder={"Beschreibung"}
                               value={formData.description}
                               onChange={handleChange}

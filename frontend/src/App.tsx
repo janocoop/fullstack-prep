@@ -12,6 +12,8 @@ import CourseThemeCreate from "./pages/courseThemeCreate.tsx";
 import CourseAufgabenLektionen from "./components/courseAufgabenLektionen.tsx";
 import CourseTaskCreateView from "./pages/courseTaskCreateView.tsx";
 import CourseLektionCreatePage from "./pages/courseLektionCreatePage.tsx";
+import CourseTaskCreatePage from "./pages/coursetaskCreatePage.tsx";
+import CourseDetailPage from "./pages/courseDetailPage.tsx";
 
 
 function App() {
@@ -22,11 +24,11 @@ function App() {
             <Route path="/login" element={<LoginView />}/>
             <Route path="/kurse" element={<CourseView />}/>
             <Route path="/kurse/erstellen" element={<CourseCreateView />}/>
-            <Route path="/kurse/:kursid" element={<CourseDetailView />}/>
+            <Route path="/kurse/:kursid" element={<CourseDetailPage />}/>
             <Route path="/kurse/:kursid/days/:dayid" element={<CourseDayView />}/>
             <Route path="/kurse/:kursid/days/:dayid/themen/erstellen" element={<CourseThemeCreate/>}/>
             <Route path="/kurse/:kursid/days/:dayid/themen/:themeid" element={<CourseAufgabenLektionen/>}/>
-            <Route path="/kurse/:kursid/days/:dayid/themen/:themeid/task/create" element={<CourseTaskCreateView/>}/>
+            <Route path="/kurse/:kursid/days/:dayid/themen/:themeid/task/create" element={<CourseTaskCreatePage/>}/>
             <Route path="/kurse/:kursid/days/:dayid/themen/:themeid/lektion/create" element={<CourseLektionCreatePage/>}/>
             <Route path="/kurse/:kursid/days/:dayid/parts/:partid" element={<CoursePartView />}/>
             <Route path="/kurse/:kursid/days/:dayid/parts/:partid/tasks/:taskid" element={<CourseTaskView />}/>

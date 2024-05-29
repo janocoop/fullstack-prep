@@ -8,6 +8,7 @@ import AccordionContent from "../components/AccordionContent.tsx";
 
 export default function CourseAufgabenLektionenPage() {
     const {kursid, dayid, themeid} = useParams();
+    if (!themeid) {return <></>;}
     const {state} = useLocation();
     const [currentState, setCurrentState] = useState(state);
 
@@ -25,6 +26,7 @@ export default function CourseAufgabenLektionenPage() {
 
 
     return (
+        <div>
         <div className={"themepage-container"}>
             <h1>{currentState?.name}</h1>
             <div className={"lektion"}>
@@ -38,7 +40,7 @@ export default function CourseAufgabenLektionenPage() {
             <div className={"tasks"}>
                 <h1 style={{ color:'#f2a200' }}>Aufgaben</h1>
                 {currentState?.aufgaben.map((kursAufgabe, index) => (
-                    <CourseAccordion title={kursAufgabe.title} content={<AccordionContent content={kursAufgabe.description}/>}/>
+                    <CourseAccordion title={kursAufgabe.title} content={<AccordionContent content={kursAufgabe.description} themeid={themeid} answer={kursAufgabe.answer}/>}/>
 
                 ))}
                 <a className={"form-group"} href={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/task/create"}>
@@ -46,6 +48,10 @@ export default function CourseAufgabenLektionenPage() {
                 </a>
 
             </div>
+        </div>
+    <a className={"form-group"} href={"/kurse/" + kursid + "/days/" + dayid}>
+        <button type="button">zurück</button>
+    </a>
         </div>
     );
 }

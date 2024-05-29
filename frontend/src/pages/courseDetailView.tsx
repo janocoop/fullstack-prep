@@ -54,6 +54,9 @@ export default function CourseDetailView() {
                 ))}
 
             </div>
+            <a className={"form-group"} href={"/kurse/"}>
+                <button type="button">zurück</button>
+            </a>
         </>
     );
 }

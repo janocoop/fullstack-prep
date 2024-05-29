@@ -109,9 +109,10 @@ return themenService.updateTask(taskUpdateRequest, themeid);
     }
 
     @PostMapping("/themen/{themeid}/task/submit/{title}/{answer}")
-public KursThemaModel submitAnswer(@PathVariable("title") String title,
-                                   @PathVariable("answer") String answer,
-                                   @PathVariable("themeid") Long themeid) {
+public KursThemaModel submitAnswer(@PathVariable("themeid") Long themeid,
+                                   @PathVariable("title") String title,
+                                   @PathVariable("answer") String answer
+                                   ) {
 
         return aufgabenService.submitAufgabe(themenService.fetchById(themeid), title, answer);
     }
