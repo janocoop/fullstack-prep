@@ -1,6 +1,5 @@
 import HeaderSection from "../sections/headerSection.tsx";
 import ContentSection from "../sections/contentSection.tsx";
-import LoginForm from "../components/loginForm.tsx";
 import FooterSection from "../sections/footerSection.tsx";
 import CourseList from "../components/courseList.tsx";
 import {useEffect, useState} from "react";

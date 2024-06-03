@@ -1,6 +1,5 @@
 import HeaderSection from "../sections/headerSection.tsx";
 import ContentSection from "../sections/contentSection.tsx";
-import CourseLektionCreateView from "./courseLektionCreateView.tsx";
 import FooterSection from "../sections/footerSection.tsx";
 import CourseTaskCreateView from "./courseTaskCreateView.tsx";
 
