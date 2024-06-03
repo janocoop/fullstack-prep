@@ -13,8 +13,7 @@ export default function CourseTaskCreateView() {
     });
 
 
-    const handleChange = (event) => {
-        const {name, value} = event.target;
+    const handleChange = (name: string, value: string) => {
         setFormData(prevState => ({
             ...prevState,
             [name]: value
@@ -43,12 +42,12 @@ export default function CourseTaskCreateView() {
                         name="title"
                         placeholder="Titel"
                         value={formData.title}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e.target.name, e.target.value)}
                     />
                     <input name={"description"}
                               placeholder={"Beschreibung"}
                               value={formData.description}
-                              onChange={handleChange}
+                              onChange={(e) => handleChange(e.target.name, e.target.value)}
                               style={{ marginTop: '10 px' }}
                     />
 
