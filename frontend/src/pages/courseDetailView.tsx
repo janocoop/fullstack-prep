@@ -13,7 +13,7 @@ type kursAufgabe = {
     answer: string
 }
 
-type kursThema = {
+export type kursThema = {
     id: number,
     name: string
     lektion: kursLektion,
@@ -27,11 +27,11 @@ type kursTag = {
     kursThemen: kursThema[]
 }
 
-type kursModel = {
+/*type kursModel = {
     id: number,
     kursName: string,
     kursTage: kursTag[],
-}
+}*/
 
 export default function CourseDetailView() {
     const params = useParams();
@@ -43,7 +43,7 @@ export default function CourseDetailView() {
                 <h1>
                     {state.kursName}
                 </h1>
-                {state.kursTage.map((kursTag, index) => (
+                {state.kursTage.map((kursTag: kursTag, index: number) => (
                     <Link to={"/kurse/" + id + "/days/" + kursTag.id} key={index} state={kursTag}>
                         <div className={"card"}>
                     <span >

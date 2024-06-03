@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class KursLektionModel {
-@Column(length = 2000)
+@Column(length = 4000)
     private String content;
 
 }

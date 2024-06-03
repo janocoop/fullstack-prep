@@ -2,6 +2,7 @@ import {useLocation, useParams} from "react-router";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {kursThema} from "./courseDetailView.tsx";
 
 
 export default function CourseDayDetailView() {
@@ -25,11 +26,11 @@ export default function CourseDayDetailView() {
                 Themen
             </h1>
 
-            <L href={"/kurse/"+kursid+"/days/"+dayid+"/themen/erstellen"} className={"form-group"}>
+            <a href={"/kurse/"+kursid+"/days/"+dayid+"/themen/erstellen"} className={"form-group"}>
                     <button type="button">Thema Erstellen</button>
-            </L>
+            </a>
 
-            {currentState?.kursThemen.map((thema, index) => (
+            {currentState?.kursThemen.map((thema: kursThema, index: number) => (
                 <Link to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + thema.id} key={index} state={thema}>
                     <div className={"card"}>
                     <span >
@@ -41,7 +42,7 @@ export default function CourseDayDetailView() {
 
 
         </div>
-    <a className={"form-group"} href={"/kurse/" + kursid}>
+    <a className={"form-group"} href={"/kurse/" + kursid }>
         <button type="button">zurück</button>
     </a>
     </div>
