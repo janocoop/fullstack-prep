@@ -4,13 +4,12 @@ import axios from "axios";
 import Markdown from "react-markdown";
 import CourseAccordion from "../components/courseAccordion.tsx";
 import AccordionContent from "../components/AccordionContent.tsx";
+import {kursAufgabe} from "./courseDetailView.tsx";
 
 export default function CourseAufgabenLektionenPage() {
-    const {kursid, dayid, themeid} = useParams();
-    if (!themeid) {return <></>;}
     const {state} = useLocation();
     const [currentState, setCurrentState] = useState(state);
-
+    const {kursid, dayid, themeid} = useParams();
     useEffect(() => {
         console.log(currentState)
         if (!currentState) {
@@ -22,6 +21,7 @@ export default function CourseAufgabenLektionenPage() {
                 .catch(err => console.error(err));
         }
     }, [kursid, dayid, currentState]);
+    if (!themeid) {return <></>;}
 
 
     return (
@@ -38,8 +38,8 @@ export default function CourseAufgabenLektionenPage() {
             </div>
             <div className={"tasks"}>
                 <h1 style={{ color:'#f2a200' }}>Aufgaben</h1>
-                {currentState?.aufgaben.map((kursAufgabe, index) => (
-                    <CourseAccordion title={kursAufgabe.title} content={<AccordionContent content={kursAufgabe.description} themeid={themeid} answer={kursAufgabe.answer}/>}/>
+                {currentState?.kursAufgaben.map((kursAufgabe: kursAufgabe) => (
+                    <CourseAccordion title={kursAufgabe.description} content={<AccordionContent content={kursAufgabe.description} themeid={themeid} answer={kursAufgabe.answer}/>}/>
 
                 ))}
                 <a className={"form-group"} href={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/task/create"}>

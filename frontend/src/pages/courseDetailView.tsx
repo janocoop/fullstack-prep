@@ -2,12 +2,12 @@ import {useLocation, useParams} from "react-router";
 
 import {Link} from "react-router-dom";
 
-type kursLektion = {
+export type kursLektion = {
     id: number,
     content: string
 }
 
-type kursAufgabe = {
+export type kursAufgabe = {
     id: number,
     description: string,
     answer: string
@@ -20,7 +20,7 @@ export type kursThema = {
     kursAufgaben: kursAufgabe[]
 }
 
-type kursTag = {
+export type kursTag = {
     kursTag: string,
     id: number,
     positon: string,

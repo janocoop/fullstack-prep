@@ -1,7 +1,6 @@
 import {useState} from "react";
 import axios from "axios";
 import "../assets/css/courseCreateView.css";
-import {Link} from "react-router-dom";
 
 export default function CourseCreateForm() {
 
