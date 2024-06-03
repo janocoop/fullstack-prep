@@ -85,8 +85,8 @@ jobs:
       - name: Bei DockerHub anmelden
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }} # muss mit dem Namen des Dockerhub-Kontos übereinstimmen
-          password: ${{ secrets.DOCKERHUB_PASSWORD }} # muss mit dem Passwort des Dockerhub-Kontos übereinstimmen
+          username: ${{ secrets.DOCKERHUB_BENUTZERNAME }} # muss mit dem Namen des Dockerhub-Kontos übereinstimmen
+          password: ${{ secrets.DOCKERHUB_PASSWORT }} # muss mit dem Passwort des Dockerhub-Kontos übereinstimmen
 
       - name: Bauen und hochladen
         uses: docker/build-push-action@v5
