@@ -13,13 +13,23 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '21'
 
       - name: Frontend bauen
         working-directory: frontend
         run: |
+          npm config delete registry
+          npm config delete proxy
+          npm config delete https-proxy 
+          npm config set registry https://registry.npmjs.org/
+          rm -f .npmrc
+          rm -f package-lock.json
+          npm cache clean --force
           npm install
           npm run build
+
+      - name: Debug frontend build directory
+        run: ls -la frontend/dist/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -37,6 +47,9 @@ jobs:
           name: frontend-build
           path: backend/src/main/resources/static
 
+      - name: Debug backend static directory
+        run: ls -la backend/src/main/resources/static
+
       - name: JDK einrichten
         uses: actions/setup-java@v4
         with:
@@ -46,6 +59,9 @@ jobs:
 
       - name: Mit Maven bauen
         run: mvn -B package --file backend/pom.xml
+
+      - name: Debug backend target directory
+        run: ls -la backend/target/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -62,6 +78,9 @@ jobs:
         with:
           name: app.jar
           path: backend/target
+
+      - name: Debug downloaded artifact
+        run: ls -la backend/target
 
       - name: Bei DockerHub anmelden
         uses: docker/login-action@v3
@@ -86,4 +105,5 @@ jobs:
     steps:
       - name: Render.com-Bereitstellung auslösen
         run: |
-          curl -X POST ${{ secrets.RENDER_DEPLOY }} #muss mit der URL des Render-Deployments übereinstimmen
+          curl -X POST ${{ secrets.RENDER_DEPLOY }}
+        # muss mit der URL des Render-Deployments übereinstimmen
