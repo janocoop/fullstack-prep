@@ -12,8 +12,7 @@ export default function CourseLektionCreateView() {
     });
 
 
-    const handleChange = (event) => {
-        const {name, value} = event.target;
+    const handleChange = (name: string, value:string) => {
         setFormData(prevState => ({
             ...prevState,
             [name]: value
@@ -41,7 +40,7 @@ export default function CourseLektionCreateView() {
         name="content"
         placeholder="Beschreibung"
         value={formData.content}
-        onChange={handleChange}
+        onChange={(e) => handleChange(e.target.name, e.target.value)}
     />
                 </div>
 
