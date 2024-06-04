@@ -1,6 +1,8 @@
-import {useLocation, useParams} from "react-router";
+import {useLocation} from "react-router";
 
 import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios, {AxiosResponse} from "axios";
 
 export type kursLektion = {
     id: number,
@@ -27,24 +29,33 @@ export type kursTag = {
     kursThemen: kursThema[]
 }
 
-/*type kursModel = {
+export type kursModel = {
     id: number,
     kursName: string,
     kursTage: kursTag[],
-}*/
+}
 
 export default function CourseDetailView() {
-    const params = useParams();
+    const [kurs, setKurs] = useState<kursModel>()
     const {state} = useLocation();
-    const id: string | undefined = params.kursid
+    useEffect(() => {
+        axios.get("/api/kurse").then((res: AxiosResponse<kursModel[]>) => {
+            res.data.forEach((data: kursModel) => {
+                if (data.id == state){
+                    setKurs(data)
+                }
+            })
+            })
+    }, []);
+
 
     return (<>
             <div className={"form-container"}>
                 <h1>
-                    {state.kursName}
+                    {kurs?.kursName}
                 </h1>
-                {state.kursTage.map((kursTag: kursTag, index: number) => (
-                    <Link to={"/kurse/" + id + "/days/" + kursTag.id} key={index} state={kursTag}>
+                {kurs?.kursTage.map((kursTag: kursTag, index: number) =>  (
+                    <Link to={"/kurse/" + state + "/days/" + kursTag.id} key={index} state={kursTag}>
                         <div className={"card"}>
                     <span >
                         {kursTag.kursTag}
@@ -54,9 +65,9 @@ export default function CourseDetailView() {
                 ))}
 
             </div>
-            <a className={"form-group"} href={"/kurse/"}>
+            <Link className={"form-group"} to={"/kurse/"}>
                 <button type="button">zurück</button>
-            </a>
+            </Link>
         </>
     );
 }
