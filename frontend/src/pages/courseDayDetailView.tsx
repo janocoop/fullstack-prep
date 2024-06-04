@@ -24,9 +24,9 @@ export default function CourseDayDetailView() {
                 Themen
             </h1>
 
-            <a href={"/kurse/"+kursid+"/days/"+dayid+"/themen/erstellen"} className={"form-group"}>
+            <Link to={"/kurse/"+kursid+"/days/"+dayid+"/themen/erstellen"} className={"form-group"}>
                     <button type="button">Thema Erstellen</button>
-            </a>
+            </Link>
             {kurs?.kursThemen.map((thema: kursThema, index: number) => (
                 <Link to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + thema.id} key={index} state={thema}>
                     <div className={"card"}>
@@ -39,7 +39,7 @@ export default function CourseDayDetailView() {
 
 
         </div>
-    <Link className={"form-group"} to={"/kurse/" + kursid } state={kursid}>
+    <Link className={"form-group"} to={"/kurse/" + kursid } state={kurs}>
         <button type="button">zurück</button>
     </Link>
     </div>
