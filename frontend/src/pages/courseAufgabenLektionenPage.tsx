@@ -23,9 +23,9 @@ export default function CourseAufgabenLektionenPage() {
                 <h1 style={{ color: '#EB6D00FF' }}>Lektion</h1>
                 <Markdown>{state.lektion.content}</Markdown>
 
-                <a className={"form-group"} href={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/lektion/create"}>
+                <Link className={"form-group"} to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/lektion/create"}>
                     <button type="button">Lektion Erstellen</button>
-                </a>
+                </Link>
             </div>
             <div className={"tasks"}>
                 <h1 style={{ color:'#f2a200' }}>Aufgaben</h1>
@@ -33,13 +33,13 @@ export default function CourseAufgabenLektionenPage() {
                     <CourseAccordion key={index} title={kursAufgabe.description} content={<AccordionContent content={kursAufgabe.description} themeid={themeid + ""} answer={kursAufgabe.answer}/>}/>
 
                 ))}
-                <a className={"form-group"} href={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/task/create"}>
+                <Link className={"form-group"} to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/task/create"}>
                     <button type="button">Aufgabe Erstellen</button>
-                </a>
+                </Link>
 
             </div>
         </div>
-    <Link className={"form-group"} to={"/kurse/" + kursid + "/days/" + dayid} state={themeid}>
+    <Link className={"form-group"} to={"/kurse/" + kursid + "/days/" + dayid}>
         <button type="button">zurück</button>
     </Link>
         </div>
