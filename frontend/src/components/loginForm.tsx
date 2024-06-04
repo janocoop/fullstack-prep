@@ -46,7 +46,7 @@ export default function LoginForm() {
                 </div>
             </form>
             <div className="form-group">
-                <button type="button" onClick={() => navigate('/')}>Ich habe keinen Account</button>
+                <button type="button" onClick={() => navigate('/register')}>Ich habe keinen Account</button>
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import './App.css'
 import RegisterView from "./pages/registerView.tsx";
 import LoginView from "./pages/loginView.tsx";
@@ -18,7 +18,8 @@ function App() {
 
   return (
         <Routes>
-            <Route path="/" element={<RegisterView />}/>
+            <Route path="/" element={<Navigate to={"/login"}/>}></Route>
+            <Route path="/register" element={<RegisterView />}/>
             <Route path="/login" element={<LoginView />}/>
             <Route path="/kurse" element={<CourseView />}/>
             <Route path="/kurse/erstellen" element={<CourseCreateView />}/>
