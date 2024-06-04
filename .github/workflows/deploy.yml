@@ -66,7 +66,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: app.jar
-          path: backend/target/app.jar # muss mit finalName in der pom.xml übereinstimmen
+          path: backend/target/backend-0.0.1-SNAPSHOT.jar # muss mit finalName in der pom.xml übereinstimmen
 
   zu-docker-hub-hochladen:
     runs-on: ubuntu-latest
