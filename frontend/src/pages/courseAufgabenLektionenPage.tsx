@@ -27,10 +27,10 @@ export default function CourseAufgabenLektionenPage() {
         <div>
 
             <div className={"themepage-container"}>
-                <h1>{currentState.name}</h1>
+                <h1>{currentState?.name}</h1>
                 <div className={"lektion"}>
                     <h1 style={{color: '#EB6D00FF'}}>Lektion</h1>
-                    <Markdown>{currentState.lektion?.content}</Markdown>
+                    <Markdown>{currentState?.lektion?.content}</Markdown>
 
                     <Link className={"form-group"}
                           to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/lektion/create"}>
@@ -39,7 +39,7 @@ export default function CourseAufgabenLektionenPage() {
                 </div>
                 <div className={"tasks"}>
                     <h1 style={{color: '#f2a200'}}>Aufgaben</h1>
-                    {currentState.aufgaben.map((kursAufgabe: kursAufgabe, index: number) => (
+                    {currentState?.aufgaben.map((kursAufgabe: kursAufgabe, index: number) => (
                         <CourseAccordion key={index} title={kursAufgabe.description}
                                          content={<AccordionContent content={kursAufgabe.description}
                                                                     themeid={themeid + ""}
