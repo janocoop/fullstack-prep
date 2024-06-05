@@ -13,7 +13,21 @@ export default function AccordionContent(props: AccordionContentProps) {
         axios.post(`/api/kurse/themen/${props.themeid}/task/submit/${props.content}/${userInput}`).then(console.log)
     }
 
+if (props.answer) {
+    return (
+        <div>
+            <div className={"content"}>
+                {props.content}
+            </div>
+            <div className={"form-group"}>
+                {props.answer}
+            </div>
+        </div>
 
+    );
+
+}
+else {
     return (
         <div>
             <div className={"content"}>
@@ -31,4 +45,7 @@ export default function AccordionContent(props: AccordionContentProps) {
         </div>
 
     );
+}
+
+
 }
