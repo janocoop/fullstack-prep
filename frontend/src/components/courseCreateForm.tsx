@@ -58,7 +58,7 @@ export default function CourseCreateForm() {
 
                 <div className="form-group">
                 <button type="submit">
-                    Speichern
+                    speichern
                 </button>
                 </div>
                 <Link className={"form-group"} to="/kurse">
