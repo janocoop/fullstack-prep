@@ -12,6 +12,7 @@ export default function CourseAufgabenLektionenPage() {
 
     useEffect(() => {
         console.log(state)
+        console.log("kursid:"+ kursid+ "dayid:" + dayid+ "themeid"+ themeid)
     }, []);
 
     return (
