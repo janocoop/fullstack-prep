@@ -21,7 +21,7 @@ export default function CourseAufgabenLektionenPage() {
             <h1>{state.name}</h1>
             <div className={"lektion"}>
                 <h1 style={{ color: '#EB6D00FF' }}>Lektion</h1>
-                <Markdown>{state.lektion.content}</Markdown>
+                <Markdown>{state.lektion?.content}</Markdown>
 
                 <Link className={"form-group"} to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid + "/lektion/create"}>
                     <button type="button">Lektion Erstellen</button>
