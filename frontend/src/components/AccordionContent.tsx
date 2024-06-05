@@ -11,6 +11,7 @@ export default function AccordionContent(props: AccordionContentProps) {
     const [userInput, setuserinput] = useState<string>(props.answer)
     const handleSave = () => {
         axios.post(`/api/kurse/themen/${props.themeid}/task/submit/${props.content}/${userInput}`).then(console.log)
+
     }
 
 if (props.answer) {

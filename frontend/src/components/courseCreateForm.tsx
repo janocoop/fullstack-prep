@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import "../assets/css/courseCreateView.css";
+import {Link} from "react-router-dom";
 
 export default function CourseCreateForm() {
 
@@ -60,9 +61,9 @@ export default function CourseCreateForm() {
                     Speichern
                 </button>
                 </div>
-                <a className={"form-group"} href="/kurse">
+                <Link className={"form-group"} to="/kurse">
                     <button type="button">Kursübersicht</button>
-                </a>
+                </Link>
 
             </form>
         </div>
