@@ -11,7 +11,7 @@ export default function CourseAufgabenLektionenPage() {
     const {kursid, dayid, themeid} = useParams();
 
     useEffect(() => {
-        console.log(state)
+        console.log("state: "+ state)
         console.log("kursid:"+ kursid+ "dayid:" + dayid+ "themeid"+ themeid)
     }, []);
 

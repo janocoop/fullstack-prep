@@ -2,6 +2,7 @@
 import {useState} from "react";
 import {useParams} from "react-router";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 export default function CourseLektionCreateView() {
@@ -49,9 +50,9 @@ export default function CourseLektionCreateView() {
                 </div>
             </form>
             <div className="form-group">
-                <a href={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid}>
+                <Link to={"/kurse/" + kursid + "/days/" + dayid + "/themen/" + themeid}>
                     <button type="button">Themenübersicht</button>
-                </a>
+                </Link>
             </div>
 
         </div>
